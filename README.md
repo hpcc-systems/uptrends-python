@@ -1,0 +1,1 @@
+# Uptrends Python Library
