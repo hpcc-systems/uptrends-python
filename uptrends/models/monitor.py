@@ -44,25 +44,27 @@ class Monitor(object):
         'monitor_mode': 'MonitorMode',
         'notes': 'str',
         'hash': 'str',
-        'predefined_variables': 'list[PredefinedVariable]',
-        'custom_metrics': 'list[CustomMetric]',
-        'credits': 'int',
-        'msa_steps': 'list[MsaStep]',
-        'self_service_transaction_script': 'str',
-        'alert_on_load_time_limit1': 'bool',
-        'load_time_limit1': 'int',
-        'alert_on_load_time_limit2': 'bool',
-        'load_time_limit2': 'int',
-        'block_google_analytics': 'bool',
+        'transaction_step_definition': 'object',
         'block_uptrends_rum': 'bool',
+        'block_google_analytics': 'bool',
         'block_urls': 'list[str]',
         'request_headers': 'list[RequestHeader]',
         'user_agent': 'str',
+        'load_time_limit1': 'int',
+        'alert_on_load_time_limit1': 'bool',
+        'load_time_limit2': 'int',
+        'alert_on_load_time_limit2': 'bool',
         'username': 'str',
-        'password': 'str',
         'authentication_type': 'ApiHttpAuthenticationType',
+        'browser_type': 'BrowserType',
+        'browser_window_dimensions': 'BrowserWindowDimensions',
+        'credits': 'int',
+        'predefined_variables': 'list[PredefinedVariable]',
+        'msa_steps': 'list[MsaStep]',
+        'custom_metrics': 'list[CustomMetric]',
+        'self_service_transaction_script': 'str',
+        'password': 'str',
         'throttling_options': 'ThrottlingOptions',
-        'transaction_step_definition': 'object',
         'certificate_name': 'str',
         'certificate_organization': 'str',
         'certificate_organizational_unit': 'str',
@@ -102,9 +104,7 @@ class Monitor(object):
         'tls_version': 'TlsVersion',
         'request_body': 'str',
         'match_patterns': 'list[PatternMatch]',
-        'url': 'str',
-        'browser_type': 'BrowserType',
-        'browser_window_dimensions': 'BrowserWindowDimensions'
+        'url': 'str'
     }
 
     attribute_map = {
@@ -121,25 +121,27 @@ class Monitor(object):
         'monitor_mode': 'MonitorMode',
         'notes': 'Notes',
         'hash': 'Hash',
-        'predefined_variables': 'PredefinedVariables',
-        'custom_metrics': 'CustomMetrics',
-        'credits': 'Credits',
-        'msa_steps': 'MsaSteps',
-        'self_service_transaction_script': 'SelfServiceTransactionScript',
-        'alert_on_load_time_limit1': 'AlertOnLoadTimeLimit1',
-        'load_time_limit1': 'LoadTimeLimit1',
-        'alert_on_load_time_limit2': 'AlertOnLoadTimeLimit2',
-        'load_time_limit2': 'LoadTimeLimit2',
-        'block_google_analytics': 'BlockGoogleAnalytics',
+        'transaction_step_definition': 'TransactionStepDefinition',
         'block_uptrends_rum': 'BlockUptrendsRum',
+        'block_google_analytics': 'BlockGoogleAnalytics',
         'block_urls': 'BlockUrls',
         'request_headers': 'RequestHeaders',
         'user_agent': 'UserAgent',
+        'load_time_limit1': 'LoadTimeLimit1',
+        'alert_on_load_time_limit1': 'AlertOnLoadTimeLimit1',
+        'load_time_limit2': 'LoadTimeLimit2',
+        'alert_on_load_time_limit2': 'AlertOnLoadTimeLimit2',
         'username': 'Username',
-        'password': 'Password',
         'authentication_type': 'AuthenticationType',
+        'browser_type': 'BrowserType',
+        'browser_window_dimensions': 'BrowserWindowDimensions',
+        'credits': 'Credits',
+        'predefined_variables': 'PredefinedVariables',
+        'msa_steps': 'MsaSteps',
+        'custom_metrics': 'CustomMetrics',
+        'self_service_transaction_script': 'SelfServiceTransactionScript',
+        'password': 'Password',
         'throttling_options': 'ThrottlingOptions',
-        'transaction_step_definition': 'TransactionStepDefinition',
         'certificate_name': 'CertificateName',
         'certificate_organization': 'CertificateOrganization',
         'certificate_organizational_unit': 'CertificateOrganizationalUnit',
@@ -179,12 +181,10 @@ class Monitor(object):
         'tls_version': 'TlsVersion',
         'request_body': 'RequestBody',
         'match_patterns': 'MatchPatterns',
-        'url': 'Url',
-        'browser_type': 'BrowserType',
-        'browser_window_dimensions': 'BrowserWindowDimensions'
+        'url': 'Url'
     }
 
-    def __init__(self, monitor_guid=None, name=None, monitor_type=None, generate_alert=None, is_active=None, is_locked=None, custom_fields=None, selected_checkpoints=None, use_primary_checkpoints_only=None, check_interval=None, monitor_mode=None, notes=None, hash=None, predefined_variables=None, custom_metrics=None, credits=None, msa_steps=None, self_service_transaction_script=None, alert_on_load_time_limit1=None, load_time_limit1=None, alert_on_load_time_limit2=None, load_time_limit2=None, block_google_analytics=None, block_uptrends_rum=None, block_urls=None, request_headers=None, user_agent=None, username=None, password=None, authentication_type=None, throttling_options=None, transaction_step_definition=None, certificate_name=None, certificate_organization=None, certificate_organizational_unit=None, certificate_serial_number=None, certificate_fingerprint=None, certificate_issuer_name=None, certificate_issuer_company_name=None, certificate_issuer_organizational_unit=None, certificate_expiration_warning_days=None, check_certificate_errors=None, alert_on_maximum_bytes=None, maximum_bytes=None, alert_on_maximum_size=None, element_maximum_size=None, ignore_external_elements=None, alert_on_percentage_fail=None, failed_object_percentage=None, domain_group_guid=None, domain_group_guid_specified=None, dns_server=None, dns_query=None, dns_expected_result=None, dns_test_value=None, port=None, ip_version=None, native_i_pv6_only=None, alert_on_minimum_bytes=None, minimum_bytes=None, database_name=None, network_address=None, imap_secure_connection=None, sftp_action=None, sftp_action_path=None, http_method=None, expected_http_status_code=None, expected_http_status_code_specified=None, tls_version=None, request_body=None, match_patterns=None, url=None, browser_type=None, browser_window_dimensions=None):  # noqa: E501
+    def __init__(self, monitor_guid=None, name=None, monitor_type=None, generate_alert=None, is_active=None, is_locked=None, custom_fields=None, selected_checkpoints=None, use_primary_checkpoints_only=None, check_interval=None, monitor_mode=None, notes=None, hash=None, transaction_step_definition=None, block_uptrends_rum=None, block_google_analytics=None, block_urls=None, request_headers=None, user_agent=None, load_time_limit1=None, alert_on_load_time_limit1=None, load_time_limit2=None, alert_on_load_time_limit2=None, username=None, authentication_type=None, browser_type=None, browser_window_dimensions=None, credits=None, predefined_variables=None, msa_steps=None, custom_metrics=None, self_service_transaction_script=None, password=None, throttling_options=None, certificate_name=None, certificate_organization=None, certificate_organizational_unit=None, certificate_serial_number=None, certificate_fingerprint=None, certificate_issuer_name=None, certificate_issuer_company_name=None, certificate_issuer_organizational_unit=None, certificate_expiration_warning_days=None, check_certificate_errors=None, alert_on_maximum_bytes=None, maximum_bytes=None, alert_on_maximum_size=None, element_maximum_size=None, ignore_external_elements=None, alert_on_percentage_fail=None, failed_object_percentage=None, domain_group_guid=None, domain_group_guid_specified=None, dns_server=None, dns_query=None, dns_expected_result=None, dns_test_value=None, port=None, ip_version=None, native_i_pv6_only=None, alert_on_minimum_bytes=None, minimum_bytes=None, database_name=None, network_address=None, imap_secure_connection=None, sftp_action=None, sftp_action_path=None, http_method=None, expected_http_status_code=None, expected_http_status_code_specified=None, tls_version=None, request_body=None, match_patterns=None, url=None):  # noqa: E501
         """Monitor - a model defined in Swagger"""  # noqa: E501
 
         self._monitor_guid = None
@@ -200,25 +200,27 @@ class Monitor(object):
         self._monitor_mode = None
         self._notes = None
         self._hash = None
-        self._predefined_variables = None
-        self._custom_metrics = None
-        self._credits = None
-        self._msa_steps = None
-        self._self_service_transaction_script = None
-        self._alert_on_load_time_limit1 = None
-        self._load_time_limit1 = None
-        self._alert_on_load_time_limit2 = None
-        self._load_time_limit2 = None
-        self._block_google_analytics = None
+        self._transaction_step_definition = None
         self._block_uptrends_rum = None
+        self._block_google_analytics = None
         self._block_urls = None
         self._request_headers = None
         self._user_agent = None
+        self._load_time_limit1 = None
+        self._alert_on_load_time_limit1 = None
+        self._load_time_limit2 = None
+        self._alert_on_load_time_limit2 = None
         self._username = None
-        self._password = None
         self._authentication_type = None
+        self._browser_type = None
+        self._browser_window_dimensions = None
+        self._credits = None
+        self._predefined_variables = None
+        self._msa_steps = None
+        self._custom_metrics = None
+        self._self_service_transaction_script = None
+        self._password = None
         self._throttling_options = None
-        self._transaction_step_definition = None
         self._certificate_name = None
         self._certificate_organization = None
         self._certificate_organizational_unit = None
@@ -259,8 +261,6 @@ class Monitor(object):
         self._request_body = None
         self._match_patterns = None
         self._url = None
-        self._browser_type = None
-        self._browser_window_dimensions = None
         self.discriminator = None
 
         if monitor_guid is not None:
@@ -289,44 +289,48 @@ class Monitor(object):
             self.notes = notes
         if hash is not None:
             self.hash = hash
-        if predefined_variables is not None:
-            self.predefined_variables = predefined_variables
-        if custom_metrics is not None:
-            self.custom_metrics = custom_metrics
-        if credits is not None:
-            self.credits = credits
-        if msa_steps is not None:
-            self.msa_steps = msa_steps
-        if self_service_transaction_script is not None:
-            self.self_service_transaction_script = self_service_transaction_script
-        if alert_on_load_time_limit1 is not None:
-            self.alert_on_load_time_limit1 = alert_on_load_time_limit1
-        if load_time_limit1 is not None:
-            self.load_time_limit1 = load_time_limit1
-        if alert_on_load_time_limit2 is not None:
-            self.alert_on_load_time_limit2 = alert_on_load_time_limit2
-        if load_time_limit2 is not None:
-            self.load_time_limit2 = load_time_limit2
-        if block_google_analytics is not None:
-            self.block_google_analytics = block_google_analytics
+        if transaction_step_definition is not None:
+            self.transaction_step_definition = transaction_step_definition
         if block_uptrends_rum is not None:
             self.block_uptrends_rum = block_uptrends_rum
+        if block_google_analytics is not None:
+            self.block_google_analytics = block_google_analytics
         if block_urls is not None:
             self.block_urls = block_urls
         if request_headers is not None:
             self.request_headers = request_headers
         if user_agent is not None:
             self.user_agent = user_agent
+        if load_time_limit1 is not None:
+            self.load_time_limit1 = load_time_limit1
+        if alert_on_load_time_limit1 is not None:
+            self.alert_on_load_time_limit1 = alert_on_load_time_limit1
+        if load_time_limit2 is not None:
+            self.load_time_limit2 = load_time_limit2
+        if alert_on_load_time_limit2 is not None:
+            self.alert_on_load_time_limit2 = alert_on_load_time_limit2
         if username is not None:
             self.username = username
-        if password is not None:
-            self.password = password
         if authentication_type is not None:
             self.authentication_type = authentication_type
+        if browser_type is not None:
+            self.browser_type = browser_type
+        if browser_window_dimensions is not None:
+            self.browser_window_dimensions = browser_window_dimensions
+        if credits is not None:
+            self.credits = credits
+        if predefined_variables is not None:
+            self.predefined_variables = predefined_variables
+        if msa_steps is not None:
+            self.msa_steps = msa_steps
+        if custom_metrics is not None:
+            self.custom_metrics = custom_metrics
+        if self_service_transaction_script is not None:
+            self.self_service_transaction_script = self_service_transaction_script
+        if password is not None:
+            self.password = password
         if throttling_options is not None:
             self.throttling_options = throttling_options
-        if transaction_step_definition is not None:
-            self.transaction_step_definition = transaction_step_definition
         if certificate_name is not None:
             self.certificate_name = certificate_name
         if certificate_organization is not None:
@@ -407,10 +411,6 @@ class Monitor(object):
             self.match_patterns = match_patterns
         if url is not None:
             self.url = url
-        if browser_type is not None:
-            self.browser_type = browser_type
-        if browser_window_dimensions is not None:
-            self.browser_window_dimensions = browser_window_dimensions
 
     @property
     def monitor_guid(self):
@@ -700,214 +700,27 @@ class Monitor(object):
         self._hash = hash
 
     @property
-    def predefined_variables(self):
-        """Gets the predefined_variables of this Monitor.  # noqa: E501
+    def transaction_step_definition(self):
+        """Gets the transaction_step_definition of this Monitor.  # noqa: E501
 
+        Only valid for Transaction monitors: the data structure that specifies the transaction steps (and sub steps) to execute.  # noqa: E501
 
-        :return: The predefined_variables of this Monitor.  # noqa: E501
-        :rtype: list[PredefinedVariable]
+        :return: The transaction_step_definition of this Monitor.  # noqa: E501
+        :rtype: object
         """
-        return self._predefined_variables
+        return self._transaction_step_definition
 
-    @predefined_variables.setter
-    def predefined_variables(self, predefined_variables):
-        """Sets the predefined_variables of this Monitor.
+    @transaction_step_definition.setter
+    def transaction_step_definition(self, transaction_step_definition):
+        """Sets the transaction_step_definition of this Monitor.
 
+        Only valid for Transaction monitors: the data structure that specifies the transaction steps (and sub steps) to execute.  # noqa: E501
 
-        :param predefined_variables: The predefined_variables of this Monitor.  # noqa: E501
-        :type: list[PredefinedVariable]
-        """
-
-        self._predefined_variables = predefined_variables
-
-    @property
-    def custom_metrics(self):
-        """Gets the custom_metrics of this Monitor.  # noqa: E501
-
-
-        :return: The custom_metrics of this Monitor.  # noqa: E501
-        :rtype: list[CustomMetric]
-        """
-        return self._custom_metrics
-
-    @custom_metrics.setter
-    def custom_metrics(self, custom_metrics):
-        """Sets the custom_metrics of this Monitor.
-
-
-        :param custom_metrics: The custom_metrics of this Monitor.  # noqa: E501
-        :type: list[CustomMetric]
+        :param transaction_step_definition: The transaction_step_definition of this Monitor.  # noqa: E501
+        :type: object
         """
 
-        self._custom_metrics = custom_metrics
-
-    @property
-    def credits(self):
-        """Gets the credits of this Monitor.  # noqa: E501
-
-
-        :return: The credits of this Monitor.  # noqa: E501
-        :rtype: int
-        """
-        return self._credits
-
-    @credits.setter
-    def credits(self, credits):
-        """Sets the credits of this Monitor.
-
-
-        :param credits: The credits of this Monitor.  # noqa: E501
-        :type: int
-        """
-
-        self._credits = credits
-
-    @property
-    def msa_steps(self):
-        """Gets the msa_steps of this Monitor.  # noqa: E501
-
-
-        :return: The msa_steps of this Monitor.  # noqa: E501
-        :rtype: list[MsaStep]
-        """
-        return self._msa_steps
-
-    @msa_steps.setter
-    def msa_steps(self, msa_steps):
-        """Sets the msa_steps of this Monitor.
-
-
-        :param msa_steps: The msa_steps of this Monitor.  # noqa: E501
-        :type: list[MsaStep]
-        """
-
-        self._msa_steps = msa_steps
-
-    @property
-    def self_service_transaction_script(self):
-        """Gets the self_service_transaction_script of this Monitor.  # noqa: E501
-
-
-        :return: The self_service_transaction_script of this Monitor.  # noqa: E501
-        :rtype: str
-        """
-        return self._self_service_transaction_script
-
-    @self_service_transaction_script.setter
-    def self_service_transaction_script(self, self_service_transaction_script):
-        """Sets the self_service_transaction_script of this Monitor.
-
-
-        :param self_service_transaction_script: The self_service_transaction_script of this Monitor.  # noqa: E501
-        :type: str
-        """
-
-        self._self_service_transaction_script = self_service_transaction_script
-
-    @property
-    def alert_on_load_time_limit1(self):
-        """Gets the alert_on_load_time_limit1 of this Monitor.  # noqa: E501
-
-
-        :return: The alert_on_load_time_limit1 of this Monitor.  # noqa: E501
-        :rtype: bool
-        """
-        return self._alert_on_load_time_limit1
-
-    @alert_on_load_time_limit1.setter
-    def alert_on_load_time_limit1(self, alert_on_load_time_limit1):
-        """Sets the alert_on_load_time_limit1 of this Monitor.
-
-
-        :param alert_on_load_time_limit1: The alert_on_load_time_limit1 of this Monitor.  # noqa: E501
-        :type: bool
-        """
-
-        self._alert_on_load_time_limit1 = alert_on_load_time_limit1
-
-    @property
-    def load_time_limit1(self):
-        """Gets the load_time_limit1 of this Monitor.  # noqa: E501
-
-
-        :return: The load_time_limit1 of this Monitor.  # noqa: E501
-        :rtype: int
-        """
-        return self._load_time_limit1
-
-    @load_time_limit1.setter
-    def load_time_limit1(self, load_time_limit1):
-        """Sets the load_time_limit1 of this Monitor.
-
-
-        :param load_time_limit1: The load_time_limit1 of this Monitor.  # noqa: E501
-        :type: int
-        """
-
-        self._load_time_limit1 = load_time_limit1
-
-    @property
-    def alert_on_load_time_limit2(self):
-        """Gets the alert_on_load_time_limit2 of this Monitor.  # noqa: E501
-
-
-        :return: The alert_on_load_time_limit2 of this Monitor.  # noqa: E501
-        :rtype: bool
-        """
-        return self._alert_on_load_time_limit2
-
-    @alert_on_load_time_limit2.setter
-    def alert_on_load_time_limit2(self, alert_on_load_time_limit2):
-        """Sets the alert_on_load_time_limit2 of this Monitor.
-
-
-        :param alert_on_load_time_limit2: The alert_on_load_time_limit2 of this Monitor.  # noqa: E501
-        :type: bool
-        """
-
-        self._alert_on_load_time_limit2 = alert_on_load_time_limit2
-
-    @property
-    def load_time_limit2(self):
-        """Gets the load_time_limit2 of this Monitor.  # noqa: E501
-
-
-        :return: The load_time_limit2 of this Monitor.  # noqa: E501
-        :rtype: int
-        """
-        return self._load_time_limit2
-
-    @load_time_limit2.setter
-    def load_time_limit2(self, load_time_limit2):
-        """Sets the load_time_limit2 of this Monitor.
-
-
-        :param load_time_limit2: The load_time_limit2 of this Monitor.  # noqa: E501
-        :type: int
-        """
-
-        self._load_time_limit2 = load_time_limit2
-
-    @property
-    def block_google_analytics(self):
-        """Gets the block_google_analytics of this Monitor.  # noqa: E501
-
-
-        :return: The block_google_analytics of this Monitor.  # noqa: E501
-        :rtype: bool
-        """
-        return self._block_google_analytics
-
-    @block_google_analytics.setter
-    def block_google_analytics(self, block_google_analytics):
-        """Sets the block_google_analytics of this Monitor.
-
-
-        :param block_google_analytics: The block_google_analytics of this Monitor.  # noqa: E501
-        :type: bool
-        """
-
-        self._block_google_analytics = block_google_analytics
+        self._transaction_step_definition = transaction_step_definition
 
     @property
     def block_uptrends_rum(self):
@@ -929,6 +742,27 @@ class Monitor(object):
         """
 
         self._block_uptrends_rum = block_uptrends_rum
+
+    @property
+    def block_google_analytics(self):
+        """Gets the block_google_analytics of this Monitor.  # noqa: E501
+
+
+        :return: The block_google_analytics of this Monitor.  # noqa: E501
+        :rtype: bool
+        """
+        return self._block_google_analytics
+
+    @block_google_analytics.setter
+    def block_google_analytics(self, block_google_analytics):
+        """Sets the block_google_analytics of this Monitor.
+
+
+        :param block_google_analytics: The block_google_analytics of this Monitor.  # noqa: E501
+        :type: bool
+        """
+
+        self._block_google_analytics = block_google_analytics
 
     @property
     def block_urls(self):
@@ -994,6 +828,90 @@ class Monitor(object):
         self._user_agent = user_agent
 
     @property
+    def load_time_limit1(self):
+        """Gets the load_time_limit1 of this Monitor.  # noqa: E501
+
+
+        :return: The load_time_limit1 of this Monitor.  # noqa: E501
+        :rtype: int
+        """
+        return self._load_time_limit1
+
+    @load_time_limit1.setter
+    def load_time_limit1(self, load_time_limit1):
+        """Sets the load_time_limit1 of this Monitor.
+
+
+        :param load_time_limit1: The load_time_limit1 of this Monitor.  # noqa: E501
+        :type: int
+        """
+
+        self._load_time_limit1 = load_time_limit1
+
+    @property
+    def alert_on_load_time_limit1(self):
+        """Gets the alert_on_load_time_limit1 of this Monitor.  # noqa: E501
+
+
+        :return: The alert_on_load_time_limit1 of this Monitor.  # noqa: E501
+        :rtype: bool
+        """
+        return self._alert_on_load_time_limit1
+
+    @alert_on_load_time_limit1.setter
+    def alert_on_load_time_limit1(self, alert_on_load_time_limit1):
+        """Sets the alert_on_load_time_limit1 of this Monitor.
+
+
+        :param alert_on_load_time_limit1: The alert_on_load_time_limit1 of this Monitor.  # noqa: E501
+        :type: bool
+        """
+
+        self._alert_on_load_time_limit1 = alert_on_load_time_limit1
+
+    @property
+    def load_time_limit2(self):
+        """Gets the load_time_limit2 of this Monitor.  # noqa: E501
+
+
+        :return: The load_time_limit2 of this Monitor.  # noqa: E501
+        :rtype: int
+        """
+        return self._load_time_limit2
+
+    @load_time_limit2.setter
+    def load_time_limit2(self, load_time_limit2):
+        """Sets the load_time_limit2 of this Monitor.
+
+
+        :param load_time_limit2: The load_time_limit2 of this Monitor.  # noqa: E501
+        :type: int
+        """
+
+        self._load_time_limit2 = load_time_limit2
+
+    @property
+    def alert_on_load_time_limit2(self):
+        """Gets the alert_on_load_time_limit2 of this Monitor.  # noqa: E501
+
+
+        :return: The alert_on_load_time_limit2 of this Monitor.  # noqa: E501
+        :rtype: bool
+        """
+        return self._alert_on_load_time_limit2
+
+    @alert_on_load_time_limit2.setter
+    def alert_on_load_time_limit2(self, alert_on_load_time_limit2):
+        """Sets the alert_on_load_time_limit2 of this Monitor.
+
+
+        :param alert_on_load_time_limit2: The alert_on_load_time_limit2 of this Monitor.  # noqa: E501
+        :type: bool
+        """
+
+        self._alert_on_load_time_limit2 = alert_on_load_time_limit2
+
+    @property
     def username(self):
         """Gets the username of this Monitor.  # noqa: E501
 
@@ -1013,27 +931,6 @@ class Monitor(object):
         """
 
         self._username = username
-
-    @property
-    def password(self):
-        """Gets the password of this Monitor.  # noqa: E501
-
-
-        :return: The password of this Monitor.  # noqa: E501
-        :rtype: str
-        """
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        """Sets the password of this Monitor.
-
-
-        :param password: The password of this Monitor.  # noqa: E501
-        :type: str
-        """
-
-        self._password = password
 
     @property
     def authentication_type(self):
@@ -1057,6 +954,174 @@ class Monitor(object):
         self._authentication_type = authentication_type
 
     @property
+    def browser_type(self):
+        """Gets the browser_type of this Monitor.  # noqa: E501
+
+
+        :return: The browser_type of this Monitor.  # noqa: E501
+        :rtype: BrowserType
+        """
+        return self._browser_type
+
+    @browser_type.setter
+    def browser_type(self, browser_type):
+        """Sets the browser_type of this Monitor.
+
+
+        :param browser_type: The browser_type of this Monitor.  # noqa: E501
+        :type: BrowserType
+        """
+
+        self._browser_type = browser_type
+
+    @property
+    def browser_window_dimensions(self):
+        """Gets the browser_window_dimensions of this Monitor.  # noqa: E501
+
+
+        :return: The browser_window_dimensions of this Monitor.  # noqa: E501
+        :rtype: BrowserWindowDimensions
+        """
+        return self._browser_window_dimensions
+
+    @browser_window_dimensions.setter
+    def browser_window_dimensions(self, browser_window_dimensions):
+        """Sets the browser_window_dimensions of this Monitor.
+
+
+        :param browser_window_dimensions: The browser_window_dimensions of this Monitor.  # noqa: E501
+        :type: BrowserWindowDimensions
+        """
+
+        self._browser_window_dimensions = browser_window_dimensions
+
+    @property
+    def credits(self):
+        """Gets the credits of this Monitor.  # noqa: E501
+
+
+        :return: The credits of this Monitor.  # noqa: E501
+        :rtype: int
+        """
+        return self._credits
+
+    @credits.setter
+    def credits(self, credits):
+        """Sets the credits of this Monitor.
+
+
+        :param credits: The credits of this Monitor.  # noqa: E501
+        :type: int
+        """
+
+        self._credits = credits
+
+    @property
+    def predefined_variables(self):
+        """Gets the predefined_variables of this Monitor.  # noqa: E501
+
+
+        :return: The predefined_variables of this Monitor.  # noqa: E501
+        :rtype: list[PredefinedVariable]
+        """
+        return self._predefined_variables
+
+    @predefined_variables.setter
+    def predefined_variables(self, predefined_variables):
+        """Sets the predefined_variables of this Monitor.
+
+
+        :param predefined_variables: The predefined_variables of this Monitor.  # noqa: E501
+        :type: list[PredefinedVariable]
+        """
+
+        self._predefined_variables = predefined_variables
+
+    @property
+    def msa_steps(self):
+        """Gets the msa_steps of this Monitor.  # noqa: E501
+
+
+        :return: The msa_steps of this Monitor.  # noqa: E501
+        :rtype: list[MsaStep]
+        """
+        return self._msa_steps
+
+    @msa_steps.setter
+    def msa_steps(self, msa_steps):
+        """Sets the msa_steps of this Monitor.
+
+
+        :param msa_steps: The msa_steps of this Monitor.  # noqa: E501
+        :type: list[MsaStep]
+        """
+
+        self._msa_steps = msa_steps
+
+    @property
+    def custom_metrics(self):
+        """Gets the custom_metrics of this Monitor.  # noqa: E501
+
+
+        :return: The custom_metrics of this Monitor.  # noqa: E501
+        :rtype: list[CustomMetric]
+        """
+        return self._custom_metrics
+
+    @custom_metrics.setter
+    def custom_metrics(self, custom_metrics):
+        """Sets the custom_metrics of this Monitor.
+
+
+        :param custom_metrics: The custom_metrics of this Monitor.  # noqa: E501
+        :type: list[CustomMetric]
+        """
+
+        self._custom_metrics = custom_metrics
+
+    @property
+    def self_service_transaction_script(self):
+        """Gets the self_service_transaction_script of this Monitor.  # noqa: E501
+
+
+        :return: The self_service_transaction_script of this Monitor.  # noqa: E501
+        :rtype: str
+        """
+        return self._self_service_transaction_script
+
+    @self_service_transaction_script.setter
+    def self_service_transaction_script(self, self_service_transaction_script):
+        """Sets the self_service_transaction_script of this Monitor.
+
+
+        :param self_service_transaction_script: The self_service_transaction_script of this Monitor.  # noqa: E501
+        :type: str
+        """
+
+        self._self_service_transaction_script = self_service_transaction_script
+
+    @property
+    def password(self):
+        """Gets the password of this Monitor.  # noqa: E501
+
+
+        :return: The password of this Monitor.  # noqa: E501
+        :rtype: str
+        """
+        return self._password
+
+    @password.setter
+    def password(self, password):
+        """Sets the password of this Monitor.
+
+
+        :param password: The password of this Monitor.  # noqa: E501
+        :type: str
+        """
+
+        self._password = password
+
+    @property
     def throttling_options(self):
         """Gets the throttling_options of this Monitor.  # noqa: E501
 
@@ -1076,29 +1141,6 @@ class Monitor(object):
         """
 
         self._throttling_options = throttling_options
-
-    @property
-    def transaction_step_definition(self):
-        """Gets the transaction_step_definition of this Monitor.  # noqa: E501
-
-        Only valid for Transaction monitors: the data structure that specifies the transaction steps (and sub steps) to execute.  # noqa: E501
-
-        :return: The transaction_step_definition of this Monitor.  # noqa: E501
-        :rtype: object
-        """
-        return self._transaction_step_definition
-
-    @transaction_step_definition.setter
-    def transaction_step_definition(self, transaction_step_definition):
-        """Sets the transaction_step_definition of this Monitor.
-
-        Only valid for Transaction monitors: the data structure that specifies the transaction steps (and sub steps) to execute.  # noqa: E501
-
-        :param transaction_step_definition: The transaction_step_definition of this Monitor.  # noqa: E501
-        :type: object
-        """
-
-        self._transaction_step_definition = transaction_step_definition
 
     @property
     def certificate_name(self):
@@ -1939,48 +1981,6 @@ class Monitor(object):
         """
 
         self._url = url
-
-    @property
-    def browser_type(self):
-        """Gets the browser_type of this Monitor.  # noqa: E501
-
-
-        :return: The browser_type of this Monitor.  # noqa: E501
-        :rtype: BrowserType
-        """
-        return self._browser_type
-
-    @browser_type.setter
-    def browser_type(self, browser_type):
-        """Sets the browser_type of this Monitor.
-
-
-        :param browser_type: The browser_type of this Monitor.  # noqa: E501
-        :type: BrowserType
-        """
-
-        self._browser_type = browser_type
-
-    @property
-    def browser_window_dimensions(self):
-        """Gets the browser_window_dimensions of this Monitor.  # noqa: E501
-
-
-        :return: The browser_window_dimensions of this Monitor.  # noqa: E501
-        :rtype: BrowserWindowDimensions
-        """
-        return self._browser_window_dimensions
-
-    @browser_window_dimensions.setter
-    def browser_window_dimensions(self, browser_window_dimensions):
-        """Sets the browser_window_dimensions of this Monitor.
-
-
-        :param browser_window_dimensions: The browser_window_dimensions of this Monitor.  # noqa: E501
-        :type: BrowserWindowDimensions
-        """
-
-        self._browser_window_dimensions = browser_window_dimensions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
