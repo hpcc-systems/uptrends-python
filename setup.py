@@ -35,6 +35,7 @@ setup(
     version=VERSION,
     description="Uptrends API v4",
     author_email="",
+    license="BSD",
     url="https://github.com/hpcc-systems/uptrends-python",
     keywords=["Swagger", "Uptrends API v4"],
     install_requires=REQUIRES,

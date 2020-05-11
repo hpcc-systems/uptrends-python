@@ -1,3 +1,4 @@
+import fileinput
 import json
 import os
 import shutil
@@ -66,5 +67,10 @@ with open(readme) as f:
 
     with open(readme_bak, "w") as g:
         g.writelines(lines)
+
+for line in fileinput.FileInput("./setup.py", inplace=True):
+    print(line, end='')
+    if "author_email" in line:
+        print(f'    license="BSD",\n', end='')
 
 shutil.move(readme_bak, readme)
