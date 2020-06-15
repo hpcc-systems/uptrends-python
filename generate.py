@@ -2,7 +2,6 @@ import fileinput
 import json
 import os
 import shutil
-from os.path import join
 from textwrap import dedent
 from urllib.request import Request, urlopen, urlretrieve
 from zipfile import ZipFile
@@ -17,13 +16,13 @@ data = {
 }
 request = Request(
     "https://generator.swagger.io/api/gen/clients/python",
-    json.dumps(data).encode('ascii'),
-    {"Content-Type": "application/json"}
+    json.dumps(data).encode("ascii"),
+    {"Content-Type": "application/json"},
 )
 with urlopen(request) as response:
-    download_url = json.load(response)['link']
+    download_url = json.load(response)["link"]
 
-    tempfile = './temp.zip'
+    tempfile = "./temp.zip"
 
     filename, headers = urlretrieve(download_url, tempfile)
 
@@ -54,23 +53,25 @@ readme = "README.md"
 readme_bak = f"{readme}.bak"
 with open(readme) as f:
     lines = f.readlines()
-    lines[0] = dedent("""\
+    lines[0] = dedent(
+        """\
         # Uptrends Python Library
 
-        *The library in this repository was automatically generated using 
+        *The library in this repository was automatically generated using
         [Swagger Codegen](https://github.com/swagger-api/swagger-codegen). However, to
         allow for upgrades and bugfixes, other scripts and documentation have been
         added. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more information.*
-        
+
         ---
-    """)
+    """
+    )
 
     with open(readme_bak, "w") as g:
         g.writelines(lines)
 
 for line in fileinput.FileInput("./setup.py", inplace=True):
-    print(line, end='')
+    print(line, end="")
     if "author_email" in line:
-        print(f'    license="BSD",\n', end='')
+        print(f'    license="BSD",\n', end="")
 
 shutil.move(readme_bak, readme)
